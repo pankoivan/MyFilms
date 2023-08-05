@@ -33,37 +33,37 @@ public class Film {
 
     private String logoUrl;
 
-    private Integer reviewsCount;
+    private Double reviewsCount;
 
-    private Integer ratingGoodReview;
+    private Double ratingGoodReview;
 
-    private Integer ratingGoodReviewVoteCount;
+    private Double ratingGoodReviewVoteCount;
 
-    private Integer ratingKinopoisk;
+    private Double ratingKinopoisk;
 
-    private Integer ratingKinopoiskVoteCount;
+    private Double ratingKinopoiskVoteCount;
 
-    private Integer ratingImdb;
+    private Double ratingImdb;
 
-    private Integer ratingImdbVoteCount;
+    private Double ratingImdbVoteCount;
 
-    private Integer ratingFilmCritics;
+    private Double ratingFilmCritics;
 
-    private Integer ratingFilmCriticsVoteCount;
+    private Double ratingFilmCriticsVoteCount;
 
-    private Integer ratingAwait;
+    private Double ratingAwait;
 
-    private Integer ratingAwaitCount;
+    private Double ratingAwaitCount;
 
-    private Integer ratingRfCritics;
+    private Double ratingRfCritics;
 
-    private Integer ratingRfCriticsVoteCount;
+    private Double ratingRfCriticsVoteCount;
 
     private String webUrl;
 
     private Integer year;
 
-    private Integer filmLength;
+    private Double filmLength;
 
     private String slogan;
 

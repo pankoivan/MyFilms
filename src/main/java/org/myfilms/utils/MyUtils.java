@@ -9,7 +9,7 @@ public class MyUtils {
     }
 
     public static URI createUriByBaseUrlAndApiParts(String baseUrl, String ... apiParts) {
-        return URI.create(baseUrl + String.join("/", apiParts));
+        return URI.create(baseUrl + "/" + String.join("/", apiParts));
     }
 
 }

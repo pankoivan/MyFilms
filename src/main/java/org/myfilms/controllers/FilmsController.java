@@ -15,7 +15,10 @@ public class FilmsController {
 
     @GetMapping("/all-my-films")
     public String returnIndex() {
-        System.out.println(filmDaoImpl.findById("474"));
+        //System.out.println(filmDaoImpl.findById("328"));
+        filmDaoImpl.findAll()
+                .getItems()
+                .forEach(System.out::println);
         return "films-template";
     }
 
