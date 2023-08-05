@@ -1,101 +1,124 @@
 <!DOCTYPE html>
 
 <html lang="en" xmlns:th="https://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Интересные места</title>
-    <link href="../static/css/bootstrap.min.css" rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
-    <link href="../static/css/style.css" rel="stylesheet" th:href="@{/css/style.css}" />
-    <link
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Интересные места</title>
+        <link
+            href="../static/css/bootstrap.min.css"
+            rel="stylesheet"
+            th:href="@{/css/bootstrap.min.css}"
+        />
+        <link
+            href="../static/css/style.css"
+            rel="stylesheet"
+            th:href="@{/css/style.css}"
+        />
+        <link
             rel="apple-touch-icon"
             sizes="180x180"
             href="../static/favicon/apple-touch-icon.png"
             th:href="@{/favicon/apple-touch-icon.png}"
-    />
-    <link
+        />
+        <link
             rel="icon"
             type="image/png"
             sizes="32x32"
             href="../static/favicon/favicon-32x32.png"
             th:href="@{/favicon/favicon-32x32.png}"
-    />
-    <link
+        />
+        <link
             rel="icon"
             type="image/png"
             sizes="16x16"
             href="../static/favicon/favicon-16x16.png"
             th:href="@{/favicon/favicon-16x16.png}"
-    />
-    <link href="../static/favicon/site.webmanifest" rel="manifest" th:href="@{/favicon/site.webmanifest}" />
-</head>
+        />
+        <link
+            href="../static/favicon/site.webmanifest"
+            rel="manifest"
+            th:href="@{/favicon/site.webmanifest}"
+        />
+    </head>
 
-<body>
-<header class="my-header">
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container">
-            <button
-                    class="navbar-toggler"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#navbarNav"
-                    aria-controls="navbarNav"
-                    aria-expanded="false"
-                    aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a
-                                class="nav-link"
-                                aria-current="page"
-                                href="index.html"
-                        >Главная</a
-                        >
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="places.html"
-                        >Интересные места</a
-                        >
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-</header>
+    <body>
+        <header class="my-header">
+            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+                <div class="container">
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link"
+                                    aria-current="page"
+                                    href="index.html"
+                                    >Главная</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="places.html"
+                                    >Интересные места</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
 
-<div class="container my-5">
-    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
-        <div th:each="each : ${films}">
-            <div class="col">
-                <div class="card">
-                    <img
-                            src="../static/img/волк.png"
-                            th:src="${each.posterUrl}"
-                            class="card-img-top"
-                            alt="волк"
-                    />
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${each.nameRu}">Зимний дом</h5>
-                        <p class="card-text" th:text="${each.description}">
-                            Lorem ipsum dolor sit amet consectetur
-                            adipisicing elit. Facere veniam molestias ad
-                            distinctio suscipit ex, voluptatum consectetur!
-                            Iure natus excepturi pariatur soluta labore,
-                            quam, ea quo dignissimos necessitatibus
-                            repellendus sint cumque assumenda voluptate
-                            odio, deserunt tempora eos omnis culpa totam.
-                        </p>
-                        <a href="#" class="btn btn-primary">В избранное</a>
+        <div class="container my-5">
+            <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
+                <div th:each="each : ${films}">
+                    <div class="col">
+                        <div class="card">
+                            <img
+                                src="../static/img/волк.png"
+                                th:src="${each.posterUrl}"
+                                class="card-img-top"
+                                alt="волк"
+                            />
+                            <div class="card-body">
+                                <h5 class="card-title" th:text="${each.nameRu}">
+                                    Зимний дом
+                                </h5>
+                                <p
+                                    class="card-text"
+                                    th:text="${each.description}"
+                                >
+                                    Lorem ipsum dolor sit amet consectetur
+                                    adipisicing elit. Facere veniam molestias ad
+                                    distinctio suscipit ex, voluptatum
+                                    consectetur! Iure natus excepturi pariatur
+                                    soluta labore, quam, ea quo dignissimos
+                                    necessitatibus repellendus sint cumque
+                                    assumenda voluptate odio, deserunt tempora
+                                    eos omnis culpa totam.
+                                </p>
+                                <a href="#" class="btn btn-primary"
+                                    >В избранное</a
+                                >
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</div>
 
-<script src="../static/js/bootstrap.bundle.min.js" th:src="@{/js/bootstrap.bundle.min.js}"></script>
-</body>
+        <script
+            src="../static/js/bootstrap.bundle.min.js"
+            th:src="@{/js/bootstrap.bundle.min.js}"
+        ></script>
+    </body>
 </html>
