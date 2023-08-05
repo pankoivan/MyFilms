@@ -1,5 +1,7 @@
 package org.myfilms.controllers;
 
+import org.myfilms.dao.interfaces.FilmDao;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,9 +10,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/films")
 public class FilmsController {
 
+    @Autowired
+    private FilmDao filmDaoImpl;
+
     @GetMapping("/all-my-films")
     public String returnIndex() {
-        System.out.println("Hello Word!");
+        System.out.println(filmDaoImpl.findById("474"));
         return "films-template";
     }
 
