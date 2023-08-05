@@ -1,0 +1,24 @@
+.improved-img {
+    background-color: aliceblue;
+}
+
+.my-header {
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    background-color: beige;
+}
+
+.card {
+    padding: 1em;
+    text-align: center;
+}
+
+.card:hover {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+    width: 70%;
+    border-radius: 50%;
+    margin: auto;
+}
