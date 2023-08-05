@@ -1,4 +1,4 @@
-package org.myfilms.myfilms;
+package org.myfilms;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
