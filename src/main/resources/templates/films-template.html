@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Интересные места</title>
+        <title>Фильмы</title>
         <link
             href="../static/css/bootstrap.min.css"
             rel="stylesheet"
@@ -43,8 +43,8 @@
     </head>
 
     <body>
-        <header class="my-header">
-            <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <header>
+            <nav class="navbar navbar-expand-lg bg-dark">
                 <div class="container">
                     <button
                         class="navbar-toggler"
@@ -57,19 +57,29 @@
                     >
                         <span class="navbar-toggler-icon"></span>
                     </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
+                    <div class="collapse navbar-collapse text-white" id="navbarNav">
+                        <ul class="navbar-nav text-white">
                             <li class="nav-item">
                                 <a
-                                    class="nav-link"
+                                    class="nav-link  text-white"
                                     aria-current="page"
                                     href="index.html"
                                     >Главная</a
                                 >
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="places.html"
-                                    >Интересные места</a
+                            <li class="nav-item text-white">
+                                <a class="nav-link active text-white" href="places.html"
+                                    >Все фильмы</a
+                                >
+                            </li>
+                            <li class="nav-item text-white">
+                                <a class="nav-link active text-white" href="places.html"
+                                >Избранные фильмы</a
+                                >
+                            </li>
+                            <li class="nav-item text-white">
+                                <a class="nav-link active  text-white" href="places.html"
+                                >Отложенные на потом</a
                                 >
                             </li>
                         </ul>
@@ -82,12 +92,13 @@
             <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-5">
                 <div th:each="each : ${films}">
                     <div class="col">
-                        <div class="card">
+                        <div class="card bg-dark text-white">
                             <img
                                 src="../static/img/волк.png"
                                 th:src="${each.posterUrl}"
-                                class="card-img-top"
+                                class="card-img-top rounded"
                                 alt="волк"
+                                style="border: 3px solid white;"
                             />
                             <div class="card-body">
                                 <h5 class="card-title" th:text="${each.nameRu}">
