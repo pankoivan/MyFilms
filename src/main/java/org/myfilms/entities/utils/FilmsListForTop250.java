@@ -1,5 +1,6 @@
 package org.myfilms.entities.utils;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,11 +12,12 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmsListContainerForTop250 implements FilmsList {
+public class FilmsListForTop250 implements FilmsList {
 
     private Integer pagesCount;
 
-    private List<Film> canonicalFilms;
+    @JsonDeserialize(contentAs = IdTransferFilmForTop250.class)
+    private List<Film> films;
 
     @Override
     public Integer getNumberOfPages() {
@@ -24,7 +26,7 @@ public class FilmsListContainerForTop250 implements FilmsList {
 
     @Override
     public List<Film> getFilmsList() {
-        return canonicalFilms;
+        return films;
     }
 
 }

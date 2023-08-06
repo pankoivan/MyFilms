@@ -1,8 +1,7 @@
 package org.myfilms.repositories.implementations;
 
 import org.myfilms.dao.interfaces.FilmDao;
-import org.myfilms.entities.MostInformativeFilm;
-import org.myfilms.entities.interfaces.InformativeFilm;
+import org.myfilms.entities.CanonicalFilm;
 import org.myfilms.entities.utils.FilmsFilter;
 import org.myfilms.entities.interfaces.FilmsList;
 import org.myfilms.repositories.interfaces.FilmRepository;
@@ -23,32 +22,31 @@ public class FilmRepositoryImpl implements FilmRepository {
     }
 
     @Override
-    public Optional<InformativeFilm> findById(String id) {
+    public Optional<CanonicalFilm> findById(String id) {
         return Optional.ofNullable(filmDaoImpl.findById(id));
     }
 
     @Override
-    public List<InformativeFilm> findAll() {
+    public List<CanonicalFilm> findAll() {
         return getList(filmDaoImpl.findAll());
     }
 
     @Override
-    public List<InformativeFilm> findAllByFilter(FilmsFilter filmsFilter) {
+    public List<CanonicalFilm> findAllByFilter(FilmsFilter filmsFilter) {
         return getList(filmDaoImpl.findAllByFilter(filmsFilter));
     }
 
     @Override
-    public List<InformativeFilm> findAllFromTop250() {
+    public List<CanonicalFilm> findAllFromTop250() {
         return getList(filmDaoImpl.findAllFromTop250());
     }
 
-    private List<InformativeFilm> getList(FilmsList result) {
-        System.out.println(result);
+    private List<CanonicalFilm> getList(FilmsList result) {
         if (result != null) {
             return result.getFilmsList()
                     .stream()
                     .map(film -> findById(String.valueOf(film.getId()))
-                            .orElseThrow(() -> new Error("This cannot happen")))
+                            .orElseThrow(() -> new RuntimeException("Exception when mapping id to CanonicalFilm")))
                     .toList();
         }
         return List.of();

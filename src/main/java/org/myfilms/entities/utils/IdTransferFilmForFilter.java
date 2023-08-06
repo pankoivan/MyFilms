@@ -8,13 +8,13 @@ import org.myfilms.entities.interfaces.Film;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class IdTransferFilm implements Film {
+public class IdTransferFilmForFilter implements Film {
 
-    private Integer filmId;
+    private Integer kinopoiskId;
 
     @Override
     public Integer getId() {
-        return filmId;
+        return kinopoiskId;
     }
 
 }

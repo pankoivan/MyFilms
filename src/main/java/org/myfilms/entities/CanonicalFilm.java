@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.myfilms.entities.interfaces.InformativeFilm;
+import org.myfilms.entities.interfaces.Film;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class MostInformativeFilm implements InformativeFilm {
+public class CanonicalFilm implements Film {
 
     private Integer kinopoiskId;
 

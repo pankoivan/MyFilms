@@ -1,5 +1,6 @@
 package org.myfilms.entities.utils;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -11,10 +12,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class FilmsListContainerForFilter implements FilmsList {
+public class FilmsListForFilter implements FilmsList {
+
+    private Integer total;
 
     private Integer totalPages;
 
+    @JsonDeserialize(contentAs = IdTransferFilmForFilter.class)
     private List<Film> items;
 
     @Override

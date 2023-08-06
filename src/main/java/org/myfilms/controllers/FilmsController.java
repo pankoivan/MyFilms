@@ -21,7 +21,8 @@ public class FilmsController {
 
     @GetMapping("/all-my-films")
     public String returnIndex(Model model) {
-        model.addAttribute("films", filmRepositoryImpl.findAll());
+        System.out.println(filmRepositoryImpl.findById("474"));
+        model.addAttribute("films", filmRepositoryImpl.findAllFromTop250());
         return "films-template";
     }
 

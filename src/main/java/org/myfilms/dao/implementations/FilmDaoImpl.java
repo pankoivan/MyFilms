@@ -1,11 +1,10 @@
 package org.myfilms.dao.implementations;
 
 import org.myfilms.dao.interfaces.FilmDao;
-import org.myfilms.entities.MostInformativeFilm;
-import org.myfilms.entities.interfaces.InformativeFilm;
+import org.myfilms.entities.CanonicalFilm;
 import org.myfilms.entities.utils.FilmsFilter;
-import org.myfilms.entities.utils.FilmsListContainerForFilter;
-import org.myfilms.entities.utils.FilmsListContainerForTop250;
+import org.myfilms.entities.utils.FilmsListForFilter;
+import org.myfilms.entities.utils.FilmsListForTop250;
 import org.myfilms.entities.interfaces.FilmsList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -47,13 +46,13 @@ public class FilmDaoImpl implements FilmDao {
     }
 
     @Override
-    public InformativeFilm findById(String id) {
-        return exchange(createUriByBaseUrlAndApiParts(baseUrlFilms, id), MostInformativeFilm.class);
+    public CanonicalFilm findById(String id) {
+        return exchange(createUriByBaseUrlAndApiParts(baseUrlFilms, id), CanonicalFilm.class);
     }
 
     @Override
     public FilmsList findAllByFilter(FilmsFilter filmsFilter) {
-        return exchange(createUriByBaseUrlAndUrlParameters(baseUrlFilms, filmsFilter), FilmsListContainerForFilter.class);
+        return exchange(createUriByBaseUrlAndUrlParameters(baseUrlFilms, filmsFilter), FilmsListForFilter.class);
     }
 
     @Override
@@ -63,7 +62,7 @@ public class FilmDaoImpl implements FilmDao {
 
     @Override
     public FilmsList findAllFromTop250() {
-        return exchange(createUriByBaseUrl(baseUrlFilmsTop), FilmsListContainerForTop250.class);
+        return exchange(createUriByBaseUrl(baseUrlFilmsTop), FilmsListForTop250.class);
     }
 
     private <T> T exchange(URI uri, Class<T> clazz) {
@@ -77,6 +76,7 @@ public class FilmDaoImpl implements FilmDao {
             return restTemplate.exchange(request, clazz)
                     .getBody();
         } catch (RestClientException e) {
+            e.printStackTrace();
             return null;
         }
     }
