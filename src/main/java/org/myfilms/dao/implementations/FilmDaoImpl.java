@@ -76,7 +76,6 @@ public class FilmDaoImpl implements FilmDao {
             return restTemplate.exchange(request, clazz)
                     .getBody();
         } catch (RestClientException e) {
-            e.printStackTrace();
             return null;
         }
     }
