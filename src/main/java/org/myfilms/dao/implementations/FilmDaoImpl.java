@@ -44,13 +44,13 @@ public class FilmDaoImpl implements FilmDao {
     }
 
     @Override
-    public FilmsList findAll() {
-        return exchange(createUriByBaseUrlAndUrlParameters(baseUrl, getDefaultFilter()), FilmsList.class);
+    public FilmsList findAllByFilter(FilmsFilter filmsFilter) {
+        return exchange(createUriByBaseUrlAndUrlParameters(baseUrl, filmsFilter), FilmsList.class);
     }
 
     @Override
-    public FilmsList findAllByFilter(FilmsFilter filmsFilter) {
-        return exchange(createUriByBaseUrlAndUrlParameters(baseUrl, getDefaultFilter()), FilmsList.class);
+    public FilmsList findAll() {
+        return findAllByFilter(getDefaultFilter());
     }
 
     private <T> T exchange(URI uri, Class<T> clazz) {
