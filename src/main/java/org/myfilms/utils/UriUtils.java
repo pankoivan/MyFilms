@@ -1,12 +1,16 @@
 package org.myfilms.utils;
 
 import lombok.experimental.UtilityClass;
-import org.myfilms.entities.utils.interfaces.UrlParameters;
+import org.myfilms.entities.interfaces.UrlParameters;
 
 import java.net.URI;
 
 @UtilityClass
 public final class UriUtils {
+
+    public static URI createUriByBaseUrl(String baseUrl) {
+        return URI.create(baseUrl);
+    }
 
     public static URI createUriByBaseUrlAndApiParts(String baseUrl,
                                                     String ... apiParts) {
@@ -43,6 +47,5 @@ public final class UriUtils {
                 URI.create(baseUrl + "/" + String.join("/", apiParts) + urlParameters) :
                 createUriByBaseUrlAndUrlParameters(baseUrl, urlParameters);
     }
-
 
 }

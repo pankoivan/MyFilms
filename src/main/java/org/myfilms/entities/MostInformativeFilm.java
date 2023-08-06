@@ -1,10 +1,10 @@
 package org.myfilms.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.myfilms.entities.interfaces.InformativeFilm;
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -12,7 +12,7 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Film {
+public class MostInformativeFilm implements InformativeFilm {
 
     private Integer kinopoiskId;
 
@@ -64,7 +64,7 @@ public class Film {
 
     private Integer year;
 
-    private Double filmLength;
+    private String filmLength;
 
     private String slogan;
 
@@ -106,5 +106,10 @@ public class Film {
 
     @JsonProperty("completed")
     private Boolean isCompleted;
+
+    @Override
+    public Integer getId() {
+        return kinopoiskId;
+    }
 
 }

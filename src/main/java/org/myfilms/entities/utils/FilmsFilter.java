@@ -5,7 +5,7 @@ import jakarta.validation.constraints.Min;
 import lombok.*;
 import org.myfilms.entities.utils.enums.Order;
 import org.myfilms.entities.utils.enums.Type;
-import org.myfilms.entities.utils.interfaces.UrlParameters;
+import org.myfilms.entities.interfaces.UrlParameters;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;

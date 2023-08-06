@@ -1,15 +1,17 @@
 package org.myfilms.dao.interfaces;
 
-import org.myfilms.entities.Film;
+import org.myfilms.entities.interfaces.InformativeFilm;
 import org.myfilms.entities.utils.FilmsFilter;
-import org.myfilms.entities.utils.FilmsList;
+import org.myfilms.entities.interfaces.FilmsList;
 
 public interface FilmDao {
 
-    Film findById(String id);
+    InformativeFilm findById(String id);
 
     FilmsList findAll();
 
     FilmsList findAllByFilter(FilmsFilter filmsFilter);
+
+    FilmsList findAllFromTop250();
 
 }
