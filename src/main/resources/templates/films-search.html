@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Поиск фильмов</title>
+        <link
+            href="../static/css/bootstrap.min.css"
+            rel="stylesheet"
+            th:href="@{/css/bootstrap.min.css}"
+        />
+        <link
+            href="../static/css/style.css"
+            rel="stylesheet"
+            th:href="@{/css/style.css}"
+        />
+        <link
+            rel="apple-touch-icon"
+            sizes="180x180"
+            href="../static/favicon/apple-touch-icon.png"
+            th:href="@{/favicon/apple-touch-icon.png}"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="32x32"
+            href="../static/favicon/favicon-32x32.png"
+            th:href="@{/favicon/favicon-32x32.png}"
+        />
+        <link
+            rel="icon"
+            type="image/png"
+            sizes="16x16"
+            href="../static/favicon/favicon-16x16.png"
+            th:href="@{/favicon/favicon-16x16.png}"
+        />
+        <link
+            href="../static/favicon/site.webmanifest"
+            rel="manifest"
+            th:href="@{/favicon/site.webmanifest}"
+        />
+    </head>
+
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg bg-dark">
+                <div class="container">
+                    <button
+                        class="navbar-toggler"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#navbarNav"
+                        aria-controls="navbarNav"
+                        aria-expanded="false"
+                        aria-label="Toggle navigation"
+                    >
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div
+                        class="collapse navbar-collapse text-white"
+                        id="navbarNav"
+                    >
+                        <ul class="navbar-nav text-white">
+                            <li class="nav-item">
+                                <a
+                                    class="nav-link text-white"
+                                    aria-current="page"
+                                    href="index.html"
+                                    >Главная</a
+                                >
+                            </li>
+                            <li class="nav-item text-white">
+                                <a
+                                    class="nav-link active text-white"
+                                    href="places.html"
+                                    >Поиск</a
+                                >
+                            </li>
+                            <li class="nav-item text-white">
+                                <a
+                                    class="nav-link active text-white"
+                                    href="places.html"
+                                    >Сохранённые</a
+                                >
+                            </li>
+                            <li class="nav-item text-white">
+                                <a
+                                    class="nav-link active text-white"
+                                    href="places.html"
+                                    >Избранные</a
+                                >
+                            </li>
+                            <li class="nav-item text-white">
+                                <a
+                                    class="nav-link active text-white"
+                                    href="places.html"
+                                    >На потом</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+        <div class="container my-5">
+            <div class="col-10 col-md-8 col-lg-6 mx-auto">
+                <div class="bg-dark rounded text-white text-center">
+                    <form action="#" method="post" style="padding: 0.75em">
+                        <div class="mb-2">
+                            <p class="mb-1">Поиск по ключевому слову</p>
+                            <input
+                                type="text"
+                                class="form-control"
+                                placeholder="Властелин колец"
+                            />
+                        </div>
+                        <div class="mb-2">
+                            <p class="mb-1">Поиск по рейтингу</p>
+                            <div
+                                class="d-flex flex-row justify-content-between"
+                            >
+                                <div>
+                                    <p class="mb-1">От</p>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="7"
+                                    />
+                                </div>
+                                <div>
+                                    <p class="mb-1">До</p>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="9"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <p class="mb-1">Поиск по году</p>
+                            <div
+                                class="d-flex flex-row justify-content-between"
+                            >
+                                <div>
+                                    <p class="mb-1">От</p>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="2000"
+                                    />
+                                </div>
+                                <div>
+                                    <p class="mb-1">До</p>
+                                    <input
+                                        type="number"
+                                        class="form-control"
+                                        placeholder="2003"
+                                    />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-2">
+                            <p class="mb-1">Сортировка</p>
+                            <select
+                                class="form-select"
+                                aria-label="Default select example"
+                            >
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div class="mb-4">
+                            <p class="mb-1">Тип</p>
+                            <select
+                                class="form-select"
+                                aria-label="Default select example"
+                            >
+                                <option selected>Open this select menu</option>
+                                <option value="1">One</option>
+                                <option value="2">Two</option>
+                                <option value="3">Three</option>
+                            </select>
+                        </div>
+                        <div>
+                            <input type="submit" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script
+            src="../static/js/bootstrap.bundle.min.js"
+            th:src="@{/js/bootstrap.bundle.min.js}"
+        ></script>
+    </body>
+</html>
