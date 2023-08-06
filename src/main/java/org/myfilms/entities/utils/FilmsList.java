@@ -1,8 +1,9 @@
-package org.myfilms.entities;
+package org.myfilms.entities.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.myfilms.entities.Film;
 
 import java.util.List;
 

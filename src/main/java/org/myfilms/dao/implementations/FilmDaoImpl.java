@@ -2,27 +2,21 @@ package org.myfilms.dao.implementations;
 
 import org.myfilms.dao.interfaces.FilmDao;
 import org.myfilms.entities.Film;
-import org.myfilms.entities.FilmsList;
+import org.myfilms.entities.utils.FilmsFilter;
+import org.myfilms.entities.utils.FilmsList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.stream.Collectors;
 
-import static org.myfilms.utils.MyUtils.createUriByBaseUrlAndApiParts;
+import static org.myfilms.utils.UriUtils.*;
+import static org.myfilms.entities.utils.FilmsFilter.*;
 
 @Component
 public class FilmDaoImpl implements FilmDao {
-
-    private static final String filters =
-            "?countries=1&genres=1&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&imdbId=Byb&keyword=Byb&page=3";
 
     private final RestTemplate restTemplate;
 
@@ -46,53 +40,27 @@ public class FilmDaoImpl implements FilmDao {
 
     @Override
     public Film findById(String id) {
+        return exchange(createUriByBaseUrlAndApiParts(baseUrl, id), Film.class);
+    }
 
-        URI uri = createUriByBaseUrlAndApiParts(baseUrl, id);
+    @Override
+    public FilmsList findAll() {
+        return exchange(createUriByBaseUrlAndUrlParameters(baseUrl, getDefaultFilter()), FilmsList.class);
+    }
+
+    @Override
+    public FilmsList findAllByFilter(FilmsFilter filmsFilter) {
+        return exchange(createUriByBaseUrlAndUrlParameters(baseUrl, getDefaultFilter()), FilmsList.class);
+    }
+
+    private <T> T exchange(URI uri, Class<T> clazz) {
 
         RequestEntity<Void> request = RequestEntity
                 .get(uri)
                 .header(tokenName, tokenValue)
                 .build();
 
-        return restTemplate.exchange(request, Film.class)
-                .getBody();
-
-    }
-
-    @Override
-    public FilmsList findAll() {
-
-        String filters =
-        "?countries=1&genres=1&order=RATING&type=ALL&ratingFrom=0&ratingTo=10&yearFrom=1000&yearTo=3000&imdbId=Byb&keyword=Byb&page=3";
-
-        Map<String, String> map = new HashMap<>();
-        //map.put("countries", "");
-        //map.put("genres", "");
-        map.put("order", "RATING");
-        map.put("type", "ALL");
-        map.put("ratingFrom", "0");
-        map.put("ratingTo", "10");
-        map.put("yearFrom", "1000");
-        map.put("yearTo", "3000");
-        //map.put("imdbId", "");
-        //map.put("keyword", "");
-        map.put("page", "2");
-
-        String realFilters = map.entrySet()
-                .stream()
-                .map(entry -> entry.getKey() + "=" + entry.getValue())
-                .collect(Collectors.joining("&", "?", ""));
-
-        //URI uri = createUriByBaseUrlAndApiParts(baseUrl, id);
-
-        System.out.println(filters);
-
-        RequestEntity<Void> request = RequestEntity
-                .get(URI.create(baseUrl + realFilters))
-                .header(tokenName, tokenValue)
-                .build();
-
-        return restTemplate.exchange(request, FilmsList.class)
+        return restTemplate.exchange(request, clazz)
                 .getBody();
     }
 
