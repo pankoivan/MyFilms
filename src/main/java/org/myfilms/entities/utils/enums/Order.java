@@ -1,4 +1,4 @@
-package org.myfilms.entities.utils;
+package org.myfilms.entities.utils.enums;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;

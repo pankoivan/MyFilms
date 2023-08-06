@@ -3,6 +3,8 @@ package org.myfilms.entities.utils;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.*;
+import org.myfilms.entities.utils.enums.Order;
+import org.myfilms.entities.utils.enums.Type;
 import org.myfilms.entities.utils.interfaces.UrlParameters;
 
 @Data
