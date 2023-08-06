@@ -7,6 +7,9 @@ import org.myfilms.entities.utils.enums.Order;
 import org.myfilms.entities.utils.enums.Type;
 import org.myfilms.entities.utils.interfaces.UrlParameters;
 
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -40,11 +43,21 @@ public class FilmsFilter implements UrlParameters {
 
     @Override
     public String toStringAsUrlParameters() {
-        return "?" + String.join(
+       /* return "?" + String.join(
                "&", keyword, order.toString(), type.toString(),
                 String.valueOf(ratingFrom), String.valueOf(ratingTo),
                 String.valueOf(yearFrom), String.valueOf(yearTo)
-        );
+        );*/
+        return Arrays.stream(this.getClass()
+                .getDeclaredFields())
+                .map(field -> {
+                    try {
+                        return field.getName() + "=" + field.get(this);
+                    } catch (IllegalAccessException e) {
+                        throw new RuntimeException(e);
+                    }
+                })
+                .collect(Collectors.joining("&", "?", ""));
     }
 
 }
